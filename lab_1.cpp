@@ -40,57 +40,57 @@ int main(){
 
     if (hour > noon)
     {
-        clock = hour - noon
+        clock = hour - noon;
     }
 
     std::cout << clock;
 
     if (clock == one)
     {
-        std::cout << "час";
+        std::cout << " час";
     }
     else if (clock > one && clock < five)
     {
-        std::cout << "часа";
+        std::cout << " часа";
     }
     else
     {
-        std::cout << "часов";
+        std::cout << " часов";
     }
 
     if (minute != startingPoint)
     {
         std::cout << " " << minute;
 
-        if (minute == one)
+        if (minute % ten == one)
         {
-            std::cout << "минута"
+            std::cout << " минута";
         }
-        else  if (minute > one && minute < five )
+        else  if (minute % ten > one && minute % ten < five )
         {
-            std::cout<< "минуты"
+            std::cout<< " минуты";
         }
         else
         {
-            std::cout<< "минут";
+            std::cout<< " минут";
         }
     }
 
     if (hour >= startMorning && hour < noon)
     {
-        std::cout<< "утра";
+        std::cout<< " утра";
     }
-    else if (hour > noon && hour << startEvening)
+    else if (hour > noon && hour < startEvening)
     {
-        std::cout<< "дня";
+        std::cout<< " дня";
     }
     else if (hour >= startEvening && hour <= HourMax)
     {
-        std::cout<< "вечера";
+        std::cout<< " вечера";
     }
     else
     {
-        std::cout<< "ночи";
+        std::cout<< " ночи";
     }
 
     return 0;
