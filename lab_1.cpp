@@ -1,6 +1,5 @@
 #include <iostream>
-
-int main(){
+namespace{
     const int startingPoint{0};
     const int HourMax{23};
     const int MinuteMax{59};
@@ -12,10 +11,11 @@ int main(){
     const int one {1};
     const int five{5};
     const int ten {10};
-
+}
+int main(){
     int hour;
     int minute;
-
+    std::cout<< "Введите часы и минуты: ";
     std::cin >> hour >> minute;
 
     if (hour > HourMax || hour < startingPoint || minute > MinuteMax || minute < startingPoint)
@@ -92,7 +92,9 @@ int main(){
     {
         std::cout<< " ночи";
     }
-
+    if (minute == startingPoint){
+        std::cout<< " ровно";
+    }
     return 0;
 
 
