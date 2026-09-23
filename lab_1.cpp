@@ -1,104 +1,77 @@
 #include <iostream>
-namespace{
-    const int startingPoint{0};
-    const int HourMax{23};
-    const int MinuteMax{59};
+namespace {
+const int kStartingPoint{0};
+const int kHourMax{23};
+const int kMinuteMax{59};
 
-    const int startMorning{5};
-    const int noon{12};
-    const int startEvening{18};
+const int kStartMorning{5};
+const int kNoon{12};
+const int kStartEvening{18};
 
-    const int one {1};
-    const int five{5};
-    const int ten {10};
-}
-int main(){
+const int kEndwithOne{1};
+const int kEndWithFive{5};
+const int kDelitelTen{10};
+}  // namespace
+int main() {
     int hour;
     int minute;
-    std::cout<< "Введите часы и минуты: ";
+    std::cout << "Введите часы и минуты: ";
     std::cin >> hour >> minute;
 
-    if (hour > HourMax || hour < startingPoint || minute > MinuteMax || minute < startingPoint)
-    {
+    if (hour > kHourMax || hour < kStartingPoint || minute > kMinuteMax || minute < kStartingPoint) {
         std::cout << "введены недопустимые данные";
         return 0;
     }
 
-    if (hour == startingPoint && minute == startingPoint)
-    {
+    if (hour == kStartingPoint && minute == kStartingPoint) {
         std::cout << "полночь";
         return 0;
     }
 
-    if (hour == noon && minute == startingPoint)
-    {
+    if (hour == kNoon && minute == kStartingPoint) {
         std::cout << "полдень";
         return 0;
     }
 
     int clock = hour;
 
-    if (hour > noon)
-    {
-        clock = hour - noon;
+    if (hour > kNoon) {
+        clock = hour - kNoon;
     }
 
     std::cout << clock;
 
-    if (clock == one)
-    {
+    if (clock == kEndwithOne) {
         std::cout << " час";
-    }
-    else if (clock > one && clock < five)
-    {
+    } else if (clock > kEndwithOne && clock < kEndWithFive) {
         std::cout << " часа";
-    }
-    else
-    {
+    } else {
         std::cout << " часов";
     }
 
-    if (minute != startingPoint)
-    {
+    if (minute != kStartingPoint) {
         std::cout << " " << minute;
 
-        if (minute % ten == one)
-        {
+        if (minute % kDelitelTen == kEndwithOne) {
             std::cout << " минута";
-        }
-        else  if (minute % ten > one && minute % ten < five )
-        {
-            std::cout<< " минуты";
-        }
-        else
-        {
-            std::cout<< " минут";
+        } else if (minute % kDelitelTen > kEndwithOne && minute % kDelitelTen < kEndWithFive) {
+            std::cout << " минуты";
+        } else {
+            std::cout << " минут";
         }
     }
 
-    if (hour >= startMorning && hour < noon)
-    {
-        std::cout<< " утра";
+    if (hour >= kStartMorning && hour < kNoon) {
+        std::cout << " утра";
+    } else if (hour >= kNoon && hour < kStartEvening) {
+        std::cout << " дня";
+    } else if (hour >= kStartEvening && hour <= kHourMax) {
+        std::cout << " вечера";
+    } else {
+        std::cout << " ночи";
     }
-    else if (hour > noon && hour < startEvening)
-    {
-        std::cout<< " дня";
-    }
-    else if (hour >= startEvening && hour <= HourMax)
-    {
-        std::cout<< " вечера";
-    }
-    else
-    {
-        std::cout<< " ночи";
-    }
-    if (minute == startingPoint){
-        std::cout<< " ровно";
+    if (minute == kStartingPoint) {
+        std::cout << " ровно";
     }
     return 0;
-
-
-
-
-
 }
