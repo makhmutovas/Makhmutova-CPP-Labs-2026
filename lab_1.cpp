@@ -11,8 +11,9 @@ const int kEveningBegin{18};
 const int kLowBound{1};
 const int kMedBound{5};
 const int kFindLast{10};
+const int kExceptionsStart{11};
 const int HighBound{20};
-}
+}  // namespace
 
 int main() {
     int hour{0};
@@ -21,17 +22,17 @@ int main() {
     std::cin >> hour >> minute;
 
     if (hour > kHourLimit || hour < kStartingPoint || minute > kMinuteLimit || minute < kStartingPoint) {
-        std::cout << "введены недопустимые данные";
+        std::cout << "введены недопустимые данные\n";
         return 1;
     }
 
     if (hour == kStartingPoint && minute == kStartingPoint) {
-        std::cout << "полночь";
+        std::cout << "полночь\n";
         return 0;
     }
 
     if (hour == kNoon && minute == kStartingPoint) {
-        std::cout << "полдень";
+        std::cout << "полдень\n";
         return 0;
     }
 
@@ -54,7 +55,7 @@ int main() {
     if (minute != kStartingPoint) {
         std::cout << " " << minute;
 
-        if (minute % kFindLast == kLowBound) {
+        if (minute % kFindLast == kLowBound && minute != kExceptionsStart) {
             std::cout << " минута";
         } else if ((minute % kFindLast > kLowBound && minute % kFindLast < kMedBound) && !(minute > kFindLast && minute < HighBound)) {
             std::cout << " минуты";
@@ -75,7 +76,6 @@ int main() {
     if (minute == kStartingPoint) {
         std::cout << " ровно";
     }
-    std::cout<< std::endl;
+    std::cout << std::endl;
     return 0;
-
 }
