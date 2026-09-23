@@ -13,8 +13,8 @@ const int kEndWithFive{5};
 const int kDelitelTen{10};
 }  // namespace
 int main() {
-    int hour;
-    int minute;
+    int hour(0);
+    int minute(0);
     std::cout << "Введите часы и минуты: ";
     std::cin >> hour >> minute;
 
